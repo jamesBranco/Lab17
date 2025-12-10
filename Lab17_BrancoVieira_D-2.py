@@ -1,14 +1,14 @@
 """
-Program: Lab 17 – GitHub Language Repositories Visualization
+Program: Lab 17 - GitHub Language Repositories Visualization
 Author: Dyemydym (James) Branco Vieira
 Purpose: Use the GitHub API to retrieve the most-starred repositories
-         for a specific programming language, and visualize the results
-         in a bar chart. This program follows the style from
-         Python Crash Course, Chapter 17.
+for a specific programming language, and visualize the results
+ in a bar chart.
 Date: 2025-12-10
 """
 
 import requests
+
 import plotly.express as px
 
 
@@ -27,7 +27,7 @@ def get_repo_data(language="javascript", per_page=30):
     response = requests.get(url, headers=headers, params=params)
     print(f"Status code: {response.status_code}")
 
-    # Stop the program if the request failed
+    # Stop the program if request fails
     response.raise_for_status()
 
     data = response.json()
@@ -44,7 +44,7 @@ def build_bar_chart(repo_dicts, language="JavaScript"):
         stars_count = repo["stargazers_count"]
         url = repo["html_url"]
 
-        # Make repo names into clickable hyperlinks (like the book example)
+        # Make repo names into clickable hyperlinks
         clickable = f"<a href='{url}'>{name}</a>"
 
         repo_names.append(clickable)
@@ -71,7 +71,7 @@ def build_bar_chart(repo_dicts, language="JavaScript"):
 
 def main():
     """Run the GitHub repo request and produce a visualization."""
-    language = "javascript"   # You may change this to any language
+    language = "javascript"   # chose language
     repos = get_repo_data(language=language)
     build_bar_chart(repos, language=language.capitalize())
 
