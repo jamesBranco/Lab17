@@ -2,8 +2,7 @@
 Program: Lab 17 - GitHub Language Repositories Visualization
 Author: Dyemydym (James) Branco Vieira
 Purpose: Use the GitHub API to retrieve the most-starred repositories
-for a specific programming language, and visualize the results
- in a bar chart.
+for a specific programming language, and visualize the results in a bar chart.
 Date: 2025-12-10
 """
 
